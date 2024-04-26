@@ -7,7 +7,7 @@ description: |-
 vehicle_base:
   sensing:
     perception:
-      activate: true # when not activated, objects positions will be retrieved from server directly
+      activate: false # when not activated, objects positions will be retrieved from server directly
       camera:
         visualize: 4 # how many camera images need to be visualized. 0 means no visualization for camera
         num: 4 # how many cameras are mounted on the vehicle. Maximum 3(frontal, left and right cameras)
@@ -32,18 +32,30 @@ vehicle_base:
 carla_traffic_manager:
   random: true # whether to random select vehicles' color and model
   ignore_lights_percentage: 0 # whether set the traffic ignore traffic lights
-  vehicle_list: ~  # a number or a list
-  # Used only when vehicle_list is a number.
-  # x_min, x_max, y_min, y_max, x_step, y_step
-  range:
-    - [ 50, 250, 135, 145, 50, 4, 30]
-
+  vehicle_list:
+    - spawn_position: [6.307948, 20, 0.3, 0, -90, 0]
+      vehicle_speed_perc: 70
+    - spawn_position: [2.625088, -36.528095, 0.3, 0, -90, 0]
+      vehicle_speed_perc: 50
+    #- spawn_position: [6.225088, -36.528095, 0.3, 0, -90, 0]
+      #vehicle_speed_perc: 50
+    - spawn_position: [9.625088, -36.528095, 0.3, 0, -90, 0]
+      vehicle_speed_perc: 50
+    - spawn_position: [11.088485, -124.818565, 0.3, 0, -90, 0]
+      vehicle_speed_perc: 20
+    - spawn_position: [45.537855, -20.313631, 0.3, 0, -180, 0]
+      vehicle_speed_perc: 0
+    - spawn_position: [45.537855, -23.313631, 0.3, 0, -180, 0]
+      vehicle_speed_perc: 0
+  # range:
+    # - [ 50, 250, 135, 145, 50, 4, 30]
+      
 # define scenario. In this scenario, only a single CAV will be spawned
 scenario:
   single_cav_list: # this is for merging vehicle or single cav without v2x
     - name: cav1
-      spawn_position: [47.7194, 139.51, 0.3, 0, 0, 0]
-      destination: [600, 145.51, 0.3]
+      spawn_position: [6.307948, 30.074142, 0.3, 0, -90, 0]
+      destination: [-11.996660, -41.644093, 0.3]
       v2x:
         communication_range: 45
       behavior:
